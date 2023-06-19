@@ -17,10 +17,10 @@ while tries_counter != 0:
             break
         case num if user_num > num:
             tries_counter -= 1
-            print(f'Число {user_num} больше загаданного, у Вас осталось {tries_counter} попытки(ок).')
+            print(f'Число {user_num} больше задуманного, у Вас осталось {tries_counter} попытки(ок).')
 
         case num if user_num < num:
             tries_counter -= 1
-            print(f'Число {user_num} меньше загаданного, у Вас осталось {tries_counter} попытки(ок).')
+            print(f'Число {user_num} меньше задуманного, у Вас осталось {tries_counter} попытки(ок).')
 else:
         print(f'Вы проиграли! Попытки закончились, а число угадать не удалось. Было задумано число {num}')
