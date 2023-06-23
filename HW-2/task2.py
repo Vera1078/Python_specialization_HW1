@@ -18,8 +18,8 @@ else:
     g2 = gcd(rn, cd)
     n = int(rn / g2)
     d = int(cd / g2)
-    sum1 = n//gcd(n, d)
-    sum2 = d//gcd(n, d)
+    sum1 = n // gcd(n, d)
+    sum2 = d // gcd(n, d)
     print('{}/{}'.format(sum1, sum2) if n != d else n)
 
 n12 = n1 * n2
