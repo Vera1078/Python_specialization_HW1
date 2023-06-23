@@ -24,8 +24,8 @@ else:
 
 n12 = n1 * n2
 d12 = d1 * d2
-mult1 = n12//gcd(n12, d12)
-mult2 = d12//gcd(n12, d12)
+mult1 = n12 // gcd(n12, d12)
+mult2 = d12 // gcd(n12, d12)
 print ('{}/{}'.format(mult1, mult2))
 
 print('Проверочные методы: ')
