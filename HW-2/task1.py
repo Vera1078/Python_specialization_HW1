@@ -19,7 +19,7 @@ def convert_number (num: int, mode: str) -> str:
         if res == 15:
             res = 'f'
         result += str(res)
-        num = num // convert
+        num //= convert
     return result[::-1]
 
 print (convert_number(3001, 16))
