@@ -9,8 +9,8 @@ n1, d1 = map(int, input("Введите первую дробь (вида a/b): 
 n2, d2 = map(int, input("Введите вторую дробь (вида a/b): ").split('/'))
 print('Мои методы: ')
 if d1 == d2:
-    sum_n = (n1+n2)//gcd(n1 + n2, d1)
-    sum_d = d1//gcd(n1 + n2, d1)
+    sum_n = (n1 + n2) // gcd(n1 + n2, d1)
+    sum_d = d1 // gcd(n1 + n2, d1)
     print('{}/{}'.format(sum_n, sum_d))
 else:
     cd = int(d1 * d2 / gcd(d1, d2))
