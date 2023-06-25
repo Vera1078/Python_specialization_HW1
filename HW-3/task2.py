@@ -4,7 +4,7 @@
 
 my_list = [4, 8, True, 'dff', 8, 4, True, 'fff', 7, 2, 8]
 tmp = []
-for item in my_list:
+for item in set(my_list):
     if my_list.count(item) > 1:
         tmp.append(item)
 
