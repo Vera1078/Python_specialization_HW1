@@ -14,7 +14,6 @@ import json
 from exceptions import *
 from user import User
 
-
 class Project:
     def __init__(self, users_list=None):
         if users_list is None:
@@ -39,7 +38,7 @@ class Project:
     def login(self, name, user_id):
         user_to_check = User(name, user_id)
         if user_to_check not in self.users_list:
-            raise AccessException(user_to_check.name, user_to_check.user_id)
+            raise AccessError(user_to_check.name, user_to_check.user_id)
         for user in self.users_list:
             if user == user_to_check:
                 self.admin = user
@@ -48,17 +47,17 @@ class Project:
 
     def add_user(self, name, user_id, level):
         if self.admin is None:
-            raise NoAdminException
+            raise NoAdminError
         if level < self.admin.level:
-            raise LevelException(level, self.admin.level)
+            raise LevelError(level, self.admin.level)
         if user_id in self.ids_list:
-            raise DoubleIdException(user_id)
+            raise DoubleIdError(user_id)
         self.users_list.append(User(name, user_id, level))
         self.ids_list.append(user_id)
 
     def del_user(self, name, user_id, level):
         if level < self.admin.level:
-            raise LevelException
+            raise LevelError
         try:
             self.users_list.remove(User(name, user_id, level))
         except ValueError:
@@ -77,7 +76,7 @@ class Project:
 
 p = Project().get_users_list('users.json')
 print(p.users_list)
-p.login('Wolf', 5)
+p.login('sam', 2)
 print(f'Админ: {p.admin}')
 p.add_user('Fuchs', 7, 4)
 p.save_file('users_pro.json')

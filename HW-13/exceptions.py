@@ -1,8 +1,7 @@
-class MainException(Exception):
+class BasicException(Exception):
     pass
 
-
-class LevelException(MainException):
+class LevelError(BasicException):
     def __init__(self, level, admin_level):
         self.level = level
         self.admin_level = admin_level
@@ -11,8 +10,7 @@ class LevelException(MainException):
         return f'Операция не выполнена! Ваш уровень - {self.admin_level}. Вы пытаетесь создать пользователя ' \
                f'с уровнем {self.level}'
 
-
-class AccessException(MainException):
+class AccessError(BasicException):
     def __init__(self, name, user_id):
         self.name = name
         self.user_id = user_id
@@ -21,12 +19,12 @@ class AccessException(MainException):
         return f'У пользователя {self.name} / ID = {self.user_id} нет прав доступа!'
 
 
-class NoAdminException(MainException):
+class NoAdminError(BasicException):
     def __str__(self):
         return 'В проекте нет админа! Создайте админа!'
 
 
-class DoubleIdException(MainException):
+class DoubleIdError(BasicException):
     def __init__(self, user_id):
         self.user_id = user_id
 
